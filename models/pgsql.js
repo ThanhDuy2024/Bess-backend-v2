@@ -1,11 +1,12 @@
-const Client = require('pg').Pool;
+require("dotenv").config();
+const Client = require("pg").Pool;
 
 const database = new Client({
-  host: "61.28.230.132",
-  port: 5431,
-  user: "embody_master",
-  password: "rnd@2025",
-  database: "embody_db",
+  host: process.env.PG_HOST,
+  port: process.env.PG_PORT,
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  database: process.env.PG_DATABASE,
   //ssl: { rejectUnauthorized: false }
 });
 database.connect();
