@@ -9,7 +9,13 @@ const database = new Client({
   database: process.env.PG_DATABASE,
   //ssl: { rejectUnauthorized: false }
 });
-database.connect();
+database.connect()
+    .then(() => {
+        console.log("Connected to PostgreSQL");
+    })
+    .catch((err) => {
+        console.error("Connection error:", err);
+    });
 
 
 function read_db(select, table, value_db, Callback) {

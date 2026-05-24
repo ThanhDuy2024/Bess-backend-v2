@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://embody:rnd%402025@61.28.230.132:27018/admin').then(
+mongoose.connect(process.env.MONGO_DB).then(
     (res) => {
         console.log("MongoDB connected")
-    }
-)
+    })
+    .catch((err) => {
+        console.log(err)
+        console.log("MongoDb not connected!")
+    })
 
 const reportSchema = new mongoose.Schema(
     {
