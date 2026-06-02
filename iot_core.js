@@ -9,7 +9,7 @@ const PORT = 3001;
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
-let host = ["http://127.0.0.1", "http://localhost", "http://192.168.1.4:8000", "http://bess2.local:8000", "http://bess2.local"];
+let host = ["http://127.0.0.1", "http://localhost", process.env.IP_HOST_PORT, process.env.IP_HOST];
 
 app.use(
   cors({
